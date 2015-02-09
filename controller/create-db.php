@@ -1,24 +1,5 @@
 <?php
-
 require_once(__DIR__ . "/../model/config.php");
-
-$connection = new mysqli($host, $username, $password);
-
-if($connection->connect_error){
-    die("<p>Error: " . $conncection->Connect_error . "</p>");
-}
-
-$exists = $connection->select_db($database);
-
-if(!$exists) {
-  $query = $connection->query("CREATE DATABASE $database");
-  
-  if($query){
-      echo "<p>Succesfully created database: " . $database . "</p>";
-  }
-  }else{
-      echo "<p>Data base already  exists. </p>";
-  }
 
   $query = $connection->query("CREATE TABLE posts("
           . "id int(11) NOT NULL AUTO_INCREMENT,"
@@ -33,5 +14,3 @@ if(!$exists) {
       echo "<p>$connection->error</p>";
   }
 
-
-$connection->close();
