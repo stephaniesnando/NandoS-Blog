@@ -18,6 +18,7 @@ class Database {
         $this->connection = new mysqli($host, $username, $password);
 
         if ($this->connection->connect_error) {
+            // If this connection comes upon an error, a message will be echoed out which will say "Error: number blah blah"
             die("<p>Error: " . $this->connection->Connect_error . "</p>");
         }
 
@@ -27,6 +28,7 @@ class Database {
             $query = $this->connection->query("CREATE DATABASE $database");
 
             if ($query) {
+                // If all goes well, a message will be echoed out which will say "Succesfully created database: blah blah"
                 echo "<p>Succesfully created database: " . $database . "</p>";
             }
         } else {
@@ -38,6 +40,7 @@ class Database {
         $this->connection = new mysqli($this->host, $this->username, $this->password, $this->database);
 
         if ($this->connection->connect_error) {
+            // If there's a connection error, then an error message will be sent out
             die("<p>Error: " . $this->conncection->Connect_error . "</p>");
         }
     }

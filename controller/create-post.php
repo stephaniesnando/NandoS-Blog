@@ -9,6 +9,7 @@ $post = filter_input(INPUT_POST, "post", FILTER_SANITIZE_STRING);
 $query = $_SESSSION["connection"]->query("INSERT INTO posts SET title = '$title', post = '$post' ");
 
 if($query){
+    //After the user submits everything a message will be echoed out which will say "Successfully inserted psot: whatever they titled it."
     echo "<p>Successfully inserted post: $title </p>";
 }
  else {
